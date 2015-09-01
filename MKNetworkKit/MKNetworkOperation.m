@@ -1411,7 +1411,8 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
 
 -(void) showLocalNotification {
 #if TARGET_OS_IPHONE
-  
+#ifndef DISABLE_PUSH_NOTIFICATIONS
+
   if(self.localNotification) {
     
     [[UIApplication sharedApplication] presentLocalNotificationNow:self.localNotification];
@@ -1424,6 +1425,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
     
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
   }
+#endif
 #endif
 }
 
